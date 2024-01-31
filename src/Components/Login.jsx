@@ -3,18 +3,14 @@ import Header from "./Header"
 import { checkValidData } from "../utils/Validate";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import '../utils/firebase.jsx'
-import { useNavigate } from "react-router-dom";
-
 const Login = () => {
   const [isSingIN, setIsSignIn] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
   const togleSignInForm = () => {
     setIsSignIn(!isSingIN);
   };
-
   const handleButtonClick = () => {
     //validate the username and password
     const message = checkValidData(email.current.value, password.current.value);
@@ -27,11 +23,6 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
 
-          // Signed up 
-          const user = userCredential.user;
-          console.log(user);
-          navigate('/browse')
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -45,9 +36,7 @@ const Login = () => {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          navigate('/browse')
+
 
         })
         .catch((error) => {
