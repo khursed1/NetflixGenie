@@ -3,6 +3,7 @@ import Header from "./Header"
 import { checkValidData } from "../utils/Validate";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import '../utils/firebase.jsx'
+import background from '../assets/background.jpg'
 const Login = () => {
   const [isSingIN, setIsSignIn] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
@@ -42,6 +43,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setErrMsg(errorMessage)
         });
 
     }
@@ -50,7 +52,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/32c47234-8398-4a4f-a6b5-6803881d38bf/eed3a573-8db7-47ca-a2ce-b511e0350439/IN-en-20240122-popsignuptwoweeks-perspective_alpha_website_large.jpg" />
+        <img src={background} />
       </div>
       <form onSubmit={(e) => e.preventDefault()} className="absolute bg-black w-[32%]
          my-36 p-12 text-white mx-auto right-0 left-0 
