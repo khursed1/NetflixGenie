@@ -52,12 +52,12 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={background} />
+        <img className="h-screen object-cover md:h-auto" src={background} />
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="absolute bg-black w-[32%]
+      <form onSubmit={(e) => e.preventDefault()} className="absolute bg-black w-[75%] md:w-[32%]
          my-36 p-12 text-white mx-auto right-0 left-0 
          rounded-lg bg-opacity-80">
-        <h1 className="text-3xl font-semibold py-4">{isSingIN ? "Sign In" : "Sign Up"}</h1>
+        <h1 className="text-xl md:text-3xl font-semibold md:py-4">{isSingIN ? "Sign In" : "Sign Up"}</h1>
         {!isSingIN ? <input type="text" placeholder="Enter your Name" className="my-4 p-4 w-full bg-gray-700 rounded-lg" /> : null
         }
         <input ref={email} type="email" placeholder="Enter Email Adress" className="my-4 p-4 w-full bg-gray-700 rounded-lg" />
@@ -65,7 +65,7 @@ const Login = () => {
         <p className="text-red-500 font-semibold">{errMsg}</p>
         <button type="submit" className="my-6 p-4 bg-red-700 w-full rounded-lg transition duration-300
         hover:bg-red-800 text-lg" onClick={handleButtonClick}>{isSingIN ? "Login" : "Sign Up"}</button>
-        <p className="m-1 hover:cursor-pointer" onClick={togleSignInForm}>{isSingIN ? "New to Netflix? SignUp" : "Already registered?Log In now"}</p>
+        <p className="m-1 hover:cursor-pointer" onClick={togleSignInForm}>{isSingIN ? "New to N? SignUp" : "Already registered?Log In now"}</p>
       </form>
     </div>
   )

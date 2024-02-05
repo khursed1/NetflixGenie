@@ -4,6 +4,7 @@ import Login from './Login'
 import { RouterProvider } from 'react-router-dom';
 
 const Body = () => {
+  console.log(import.meta.env.VITE_apiKey)
   const appRouter=createBrowserRouter([
     /**Create browser router contains array of path */
     {

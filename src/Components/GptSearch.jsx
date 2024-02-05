@@ -4,14 +4,13 @@ import background from '../assets/background.jpg'
 
 const GptSearch = () => {
   return (
-    <div>
-      <div className="absolute -z-10">
-        <img src={background}  className=""/>
-      </div>
-      <GptSearchPage />
-      <GptMovieSuggestion />
-
+    <>
+    <div className="absolute -z-10">
+      <img src={background} className="h-screen object-cover md:h-auto" />
     </div>
+      <div className="">
+        <GptSearchPage />
+      </div></>
   )
 }
 

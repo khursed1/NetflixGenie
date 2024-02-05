@@ -42,11 +42,11 @@ const Header = () => {
         dispatch(toggleGptSearchView())
     }
     return (
-        <div className="absolute w-[100%] px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-            <img src={logo} className="w-44" />
-            {user && (<div className="flex p-2">
+        <div className="absolute w-[100%] px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+            <img src={logo} className="w-44 mx-auto mt-0 md:mx-0" />
+            {user && (<div className="flex p-2 justify-between">
                 <button className="py-2 px-4 mx-4 my-2 rounded-lg bg-purple-800 text-white font-semibold hover:bg-purple-700"
-                onClick={handleGptSearchClick}>{!GptTage?"✨GPT search":"🏡Homepage"}</button>
+                onClick={handleGptSearchClick}>{!GptTage?"✨GPT search":"🏡Home"}</button>
                <div>
                <img src={profile} className=" w-8 h-8" />
                 <button className=" font-bold text-white" onClick={handleSignOut}>Sign out</button>
